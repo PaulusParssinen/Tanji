@@ -247,7 +247,8 @@ public sealed class HNode : IDisposable
 
         _socketStream = secureSocketStream; // This stream layer will decrypt/encrypt the payload using the WebSocket protocol.
         await secureSocketStream.AuthenticateAsClientAsync(sslClientAuthOptions, cancellationToken).ConfigureAwait(false);
-        return IsUpgraded;
+
+        return IsUpgraded = secureSocketStream.IsAuthenticated;
     }
     public async Task<bool> UpgradeToWebSocketServerAsync(X509Certificate certificate, CancellationToken cancellationToken = default)
     {
@@ -297,6 +298,7 @@ public sealed class HNode : IDisposable
             _socketStream = secureSocketStream;
 
             await secureSocketStream.AuthenticateAsServerAsync(certificate).ConfigureAwait(false);
+            IsUpgraded = secureSocketStream.IsAuthenticated;
         }
         else throw new Exception("The client did not send 'StartTLS'.");
         return IsUpgraded;
