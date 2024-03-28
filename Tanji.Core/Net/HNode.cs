@@ -212,7 +212,7 @@ public sealed class HNode : IDisposable
                                       + "Accept-Language: en-US,en;q=0.9";
 
         // Initialize the top-most secure tunnel where ALL data will be read/written from/to.
-        var secureSocketStream = new SslStream(_socketStream, false, ValidateRemoteCertificate);
+        var secureSocketStream = new SslStream(_socketStream, false);
         _socketStream = secureSocketStream; // Take ownership of the main input/output stream, and override the field with an SslStream instance that wraps around it.
 
         if (RemoteEndPoint is not IPEndPoint remoteIPEndPoint)
@@ -222,7 +222,8 @@ public sealed class HNode : IDisposable
 
         var sslClientAuthOptions = new SslClientAuthenticationOptions()
         {
-            TargetHost = remoteIPEndPoint.Address.ToString()
+            TargetHost = remoteIPEndPoint.Address.ToString(),
+            RemoteCertificateValidationCallback = AlwaysValidateRemoteCertificate
         };
 
         await secureSocketStream.AuthenticateAsClientAsync(sslClientAuthOptions, cancellationToken).ConfigureAwait(false);
@@ -245,7 +246,7 @@ public sealed class HNode : IDisposable
         if (!IsTLSAccepted(receiveOwner.Span.Slice(0, received))) return false;
 
         // Initialize the second secure tunnel layer where ONLY the WebSocket payload data will be read/written from/to.
-        secureSocketStream = new SslStream(_socketStream, false, ValidateRemoteCertificate);
+        secureSocketStream = new SslStream(_socketStream, false);
 
         _socketStream = secureSocketStream; // This stream layer will decrypt/encrypt the payload using the WebSocket protocol.
         await secureSocketStream.AuthenticateAsClientAsync(sslClientAuthOptions, cancellationToken).ConfigureAwait(false);
@@ -295,7 +296,7 @@ public sealed class HNode : IDisposable
         {
             await SendAsync(_okBytes.ToArray(), cancellationToken).ConfigureAwait(false);
 
-            var secureSocketStream = new SslStream(_socketStream, false, ValidateRemoteCertificate);
+            var secureSocketStream = new SslStream(_socketStream, false, AlwaysValidateRemoteCertificate);
             _socketStream = secureSocketStream;
 
             await secureSocketStream.AuthenticateAsServerAsync(certificate).ConfigureAwait(false);
@@ -349,5 +350,5 @@ public sealed class HNode : IDisposable
         }
         else cipher.Process(source, destination);
     }
-    private static bool ValidateRemoteCertificate(object sender, X509Certificate? certificate, X509Chain? chain, SslPolicyErrors sslPolicyErrors) => true;
+    private static bool AlwaysValidateRemoteCertificate(object sender, X509Certificate? certificate, X509Chain? chain, SslPolicyErrors sslPolicyErrors) => true;
 }
