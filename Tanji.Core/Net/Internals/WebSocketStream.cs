@@ -18,10 +18,10 @@ internal sealed class WebSocketStream : Stream
 
     private bool _disposed;
 
-    public WebSocketStream(Stream innerStream)
+    public WebSocketStream(Stream innerStream, bool isClient)
         : this(innerStream, false, null, false)
     { }
-    public WebSocketStream(Stream innerStream, bool isClient, byte[]? mask, bool leaveOpen)
+    public WebSocketStream(Stream innerStream, bool isClient, bool leaveOpen)
     {
         _isClient = isClient;
         _leaveOpen = leaveOpen;

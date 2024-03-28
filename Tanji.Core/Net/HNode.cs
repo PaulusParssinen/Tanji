@@ -236,7 +236,7 @@ public sealed class HNode : IDisposable
         int received = await ReceiveAsync(receiveOwner.Memory, cancellationToken).ConfigureAwait(false);
 
         IsUpgraded = true;
-        _socketStream = _webSocketStream = new WebSocketStream(_socketStream, true, null, false); // Anything now being sent or received through the stream will be parsed using the WebSocket protocol.
+        _socketStream = _webSocketStream = new WebSocketStream(_socketStream, true, false); // Anything now being sent or received through the stream will be parsed using the WebSocket protocol.
 
         await SendAsync(_startTLSBytes.ToArray(), cancellationToken).ConfigureAwait(false);
         received = await ReceiveAsync(receiveOwner.Memory, cancellationToken).ConfigureAwait(false);
@@ -287,7 +287,7 @@ public sealed class HNode : IDisposable
 
         // Begin receiving/sending data as WebSocket frames.
         IsUpgraded = true;
-        _socketStream = _webSocketStream = new WebSocketStream(_socketStream);
+        _socketStream = _webSocketStream = new WebSocketStream(_socketStream, false);
 
         received = await ReceiveAsync(receivedOwner.Memory, cancellationToken).ConfigureAwait(false);
         if (IsTLSRequested(receivedOwner.Span.Slice(0, received)))
