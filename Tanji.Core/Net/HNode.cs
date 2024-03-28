@@ -235,9 +235,6 @@ public sealed class HNode : IDisposable
         using var receiveOwner = MemoryOwner<byte>.Allocate(256);
         int received = await ReceiveAsync(receiveOwner.Memory, cancellationToken).ConfigureAwait(false);
 
-        // Create the mask that will be used for the WebSocket payloads.
-        //RandomNumberGenerator.Fill(_mask);
-
         IsUpgraded = true;
         _socketStream = _webSocketStream = new WebSocketStream(_socketStream, true, null, false); // Anything now being sent or received through the stream will be parsed using the WebSocket protocol.
 
