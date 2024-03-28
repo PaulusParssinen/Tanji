@@ -19,7 +19,7 @@ internal sealed class WebSocketStream : Stream
     private bool _disposed;
 
     public WebSocketStream(Stream innerStream, bool isClient)
-        : this(innerStream, false, null, false)
+        : this(innerStream, isClient, false)
     { }
     public WebSocketStream(Stream innerStream, bool isClient, bool leaveOpen)
     {
