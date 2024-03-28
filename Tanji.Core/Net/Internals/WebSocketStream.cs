@@ -9,7 +9,7 @@ internal sealed class WebSocketStream : Stream
 {
     private const int MAX_WEBSOCKET_TOCLIENT_PAYLOAD_SIZE = 125;
 
-    private static readonly byte[] _emptyMask = new byte[4];
+    private static readonly byte[] EmptyMask = new byte[4];
 
     private readonly byte[]? _mask;
     private readonly bool _isClient;
@@ -25,8 +25,8 @@ internal sealed class WebSocketStream : Stream
     {
         _isClient = isClient;
         _leaveOpen = leaveOpen;
-        _mask = mask ?? _emptyMask;
         _innerStream = innerStream;
+        _mask = isClient ? EmptyMask : null;
     }
 
     public override async ValueTask<int> ReadAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
@@ -149,7 +149,7 @@ internal sealed class WebSocketStream : Stream
     }
     private static MemoryOwner<byte>? PayloadMask(ReadOnlySpan<byte> payload, ReadOnlySpan<byte> mask)
     {
-        if (mask == _emptyMask) return null;
+        if (mask == EmptyMask) return null;
         var maskedOwner = MemoryOwner<byte>.Allocate(payload.Length);
 
         Span<byte> masked = maskedOwner.Span;
