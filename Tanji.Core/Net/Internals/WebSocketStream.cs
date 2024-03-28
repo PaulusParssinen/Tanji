@@ -31,6 +31,8 @@ internal sealed class WebSocketStream : Stream
 
     public override async ValueTask<int> ReadAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
     {
+        if (buffer.Length == 0) return 0;
+
         bool isMasked;
         int op, received, payloadLength;
         using var headerOwner = MemoryOwner<byte>.Allocate(14);
@@ -45,17 +47,17 @@ internal sealed class WebSocketStream : Stream
         switch (payloadLength)
         {
             case 126:
-                {
-                    received += await _innerStream.ReadAsync(headerOwner.Memory.Slice(received, sizeof(ushort)), cancellationToken).ConfigureAwait(false);
-                    payloadLength = BinaryPrimitives.ReadUInt16BigEndian(headerOwner.Span.Slice(2, sizeof(ushort)));
-                    break;
-                }
+            {
+                received += await _innerStream.ReadAsync(headerOwner.Memory.Slice(received, sizeof(ushort)), cancellationToken).ConfigureAwait(false);
+                payloadLength = BinaryPrimitives.ReadUInt16BigEndian(headerOwner.Span.Slice(2, sizeof(ushort)));
+                break;
+            }
             case 127:
-                {
-                    received += await _innerStream.ReadAsync(headerOwner.Memory.Slice(received, sizeof(ulong)), cancellationToken).ConfigureAwait(false);
-                    payloadLength = (int)BinaryPrimitives.ReadUInt64BigEndian(headerOwner.Span.Slice(2, sizeof(ulong))); // I hope payloads aren't actually this big.
-                    break;
-                }
+            {
+                received += await _innerStream.ReadAsync(headerOwner.Memory.Slice(received, sizeof(ulong)), cancellationToken).ConfigureAwait(false);
+                payloadLength = (int)BinaryPrimitives.ReadUInt64BigEndian(headerOwner.Span.Slice(2, sizeof(ulong))); // I hope payloads aren't actually this big.
+                break;
+            }
         }
 
         Memory<byte> maskRegion = null;
