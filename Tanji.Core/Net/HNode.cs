@@ -206,7 +206,7 @@ public sealed class HNode : IDisposable
                                       + "Cache-Control: no-cache\r\n"
                                       + "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36 Edg/87.0.664.52\r\n"
                                       + "Upgrade: websocket\r\n"
-                                      + "Origin: https://images.habbogroup.com\r\n"
+                                      + "Origin: https://www.habbo.com\r\n"
                                       + "Sec-WebSocket-Version: 13\r\n"
                                       + "Accept-Encoding: gzip, deflate, br\r\n"
                                       + "Accept-Language: en-US,en;q=0.9";
