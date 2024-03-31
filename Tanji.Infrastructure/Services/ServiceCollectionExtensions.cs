@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection;
 
+using Tanji.Core.Net;
 using Tanji.Infrastructure.Factories;
 using Tanji.Infrastructure.ViewModels;
 using Tanji.Infrastructure.Configuration;
@@ -23,6 +24,7 @@ public static class ServiceCollectionExtensions
         // Singleton Services
         services.AddSingleton<IClientHandlerService, ClientHandlerService>();
         services.AddSingleton<IWebInterceptionService, EavesdropInterceptionService>();
+        services.AddSingleton<IRemoteEndPointResolverService<HotelEndPoint>, RemoteHotelEndPointResolverService>();
         services.AddSingleton<IConnectionHandlerService, ConnectionHandlerService>();
 
         // Scoped Services
