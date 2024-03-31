@@ -15,7 +15,6 @@ public sealed class TanjiOptions
     public required int ProxyListenPort { get; init; }
     public required int ModulesListenPort { get; init; }
 
-    [JsonConverter(typeof(HexColorConverter))]
     public required Color UIScheme { get; init; }
     public required bool IsCheckingForUpdates { get; init; }
 
