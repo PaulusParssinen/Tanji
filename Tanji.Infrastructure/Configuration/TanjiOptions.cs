@@ -11,6 +11,9 @@ public sealed class TanjiOptions
     public required string[] UnityInterceptionTriggers { get; init; }
     public required string[] FlashInterceptionTriggers { get; init; }
 
+    public required ProxyProvider HttpSystemProxy { get; set; }
+    public required ProxyProvider SOCKS5ClientProxy { get; set; }
+
     public required int GameListenPort { get; init; }
     public required int ProxyListenPort { get; init; }
     public required int ModulesListenPort { get; init; }
