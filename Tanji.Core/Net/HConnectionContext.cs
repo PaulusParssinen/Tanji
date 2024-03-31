@@ -18,6 +18,7 @@ public readonly record struct HConnectionContext
     public IHFormat SendPacketFormat { get; init; } = IHFormat.EvaWire;
     public IHFormat ReceivePacketFormat { get; init; } = IHFormat.EvaWire;
 
+    public X509Certificate? WebSocketClientCertificate { get; init; } = default;
     public X509Certificate? WebSocketServerCertificate { get; init; } = default;
 
     public HConnectionContext(IGame game)
