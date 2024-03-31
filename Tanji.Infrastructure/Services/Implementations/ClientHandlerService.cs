@@ -12,7 +12,6 @@ using Tanji.Core.Json;
 using Tanji.Core.Canvas;
 using Tanji.Core.Canvas.Flash;
 using Tanji.Core.Net.Messages;
-using Tanji.Core.Json.Converters;
 using Tanji.Infrastructure.Configuration;
 
 using Flazzy.Tools;

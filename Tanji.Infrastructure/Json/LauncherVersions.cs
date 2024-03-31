@@ -1,8 +1,9 @@
 ﻿using System.Text.Json.Serialization;
 
+using Tanji.Core.Json;
 using Tanji.Core.Canvas;
 
-namespace Tanji.Core.Json;
+namespace Tanji.Infrastructure.Json;
 
 public readonly record struct PlatformCheck
 {

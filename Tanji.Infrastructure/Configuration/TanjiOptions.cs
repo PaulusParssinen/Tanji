@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 using System.Text.Json.Serialization;
 
-using Tanji.Core.Json;
 using Tanji.Core.Canvas;
+using Tanji.Infrastructure.Json;
 
 namespace Tanji.Infrastructure.Configuration;
 
