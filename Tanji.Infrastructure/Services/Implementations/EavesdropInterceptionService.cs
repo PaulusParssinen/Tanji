@@ -82,25 +82,25 @@ public sealed class EavesdropInterceptionService : IWebInterceptionService
     {
         if (e.Uri?.AbsolutePath == "/api/client/clientnative/url")
         {
-            await HandleTicketScrapingAsync(e).ConfigureAwait(false);
+            await HandleTicketScrapingAsync(e.Response, e.Uri).ConfigureAwait(false);
         }
     }
 
-    private async Task HandleTicketScrapingAsync(ResponseInterceptedEventArgs e)
+    private async Task HandleTicketScrapingAsync(HttpResponseMessage message, Uri requestUri)
     {
-        if (e.Uri!.DnsSafeHost.AsSpan().ToHotel() == HHotel.Unknown)
+        if (requestUri.DnsSafeHost.AsSpan().ToHotel() == HHotel.Unknown)
         {
-            _logger.LogDebug("Failed to determine HHotel object type from '{Host}'.", e.Uri.DnsSafeHost);
+            _logger.LogDebug("Failed to determine HHotel object type from '{Host}'.", requestUri.DnsSafeHost);
             return;
         }
 
-        if (!e.IsSuccessStatusCode)
+        if (!message.IsSuccessStatusCode)
         {
-            _logger.LogDebug("Status Code: {Code}", e.StatusCode);
+            _logger.LogDebug("Status Code: {Code}", message.StatusCode);
             return;
         }
 
-        string body = await e.Content.ReadAsStringAsync().ConfigureAwait(false);
+        string body = await message.Content.ReadAsStringAsync().ConfigureAwait(false);
         if (TryExtractTicket(body, out string? ticket) && !string.IsNullOrWhiteSpace(ticket))
         {
             await _ticketsChannel.Writer.WriteAsync(ticket).ConfigureAwait(false);
