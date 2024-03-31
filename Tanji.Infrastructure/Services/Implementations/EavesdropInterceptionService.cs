@@ -41,8 +41,31 @@ public sealed class EavesdropInterceptionService : IWebInterceptionService
         Eavesdropper.Certifier = new Certifier("Tanji", "Tanji Root Certificate Authority");
     }
 
-    public void StopWebInterception() => TryStartWebTrafficInterception(_logger, _options.ProxyListenPort);
-    public void StartWebInterception() => Eavesdropper.Terminate();
+    public void Start()
+    {
+        if (Eavesdropper.IsRunning) return;
+        if (Eavesdropper.Certifier == null)
+        {
+            _logger.LogCritical("Eavesdropper Certifier instance is null.");
+            throw new NullReferenceException("Eavesdropper Certifier instance is null.");
+        }
+
+        if (Eavesdropper.Certifier.CreateTrustedRootCertificate())
+        {
+            _logger.LogInformation("Initiating system wide HTTP/S interceptor on port: {ProxyListenPort}", _options.ProxyListenPort);
+            Eavesdropper.Initiate(_options.ProxyListenPort);
+        }
+        else
+        {
+            if (!Eavesdropper.IsOnlyInterceptingHttp)
+            {
+                _logger.LogCritical("User declined to trust self-signed certificate, and will therefore be unable to intercepted HTTPS traffic from the system.");
+                throw new Exception("User declined to trust self-signed certificate, and will therefore be unable to intercepted HTTPS traffic from the system.");
+            }
+            else _logger.LogInformation("User declined to add self-signed certificate as authority to trusted store on local machine.");
+        }
+    }
+    public void Stop() => Eavesdropper.Terminate();
 
     public ValueTask<string> InterceptTicketAsync(CancellationToken cancellationToken = default)
     {
