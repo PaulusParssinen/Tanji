@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Tanji.Core.Json.Converters;
+namespace Tanji.Core.Json;
 
 public sealed class IPEndPointConverter : JsonConverter<IPEndPoint>
 {
