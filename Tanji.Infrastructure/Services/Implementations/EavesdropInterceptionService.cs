@@ -33,7 +33,9 @@ public sealed class EavesdropInterceptionService : IWebInterceptionService
             SingleWriter = true
         });
 
+        Eavesdropper.Proxy = _options.HttpSystemProxy.GetProxy();
         Eavesdropper.Targets.AddRange(_options.ProxyOverrides);
+
         Eavesdropper.RequestInterceptedAsync += WebRequestInterceptedAsync;
         Eavesdropper.ResponseInterceptedAsync += WebResponseInterceptedAsync;
         Eavesdropper.Certifier = new Certifier("Tanji", "Tanji Root Certificate Authority");
