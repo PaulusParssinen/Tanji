@@ -80,9 +80,15 @@ public sealed class EavesdropInterceptionService : IWebInterceptionService
     }
     private async Task WebResponseInterceptedAsync(object? sender, ResponseInterceptedEventArgs e)
     {
-        if (e.Uri?.AbsolutePath != "/api/client/clientnative/url") return;
+        if (e.Uri?.AbsolutePath == "/api/client/clientnative/url")
+        {
+            await HandleTicketScrapingAsync(e).ConfigureAwait(false);
+        }
+    }
 
-        if (e.Uri.DnsSafeHost.AsSpan().ToHotel() == HHotel.Unknown)
+    private async Task HandleTicketScrapingAsync(ResponseInterceptedEventArgs e)
+    {
+        if (e.Uri!.DnsSafeHost.AsSpan().ToHotel() == HHotel.Unknown)
         {
             _logger.LogDebug("Failed to determine HHotel object type from '{Host}'.", e.Uri.DnsSafeHost);
             return;
