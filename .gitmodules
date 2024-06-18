@@ -1,0 +1,3 @@
+[submodule "Shockky"]
+	path = Shockky
+	url = https://github.com/PaulusParssinen/Shockky.git
