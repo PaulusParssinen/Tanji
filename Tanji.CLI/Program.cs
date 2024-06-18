@@ -69,7 +69,7 @@ public class Program
             string ticket = true ? "hhus.ABC.v4" : await _webInterception.InterceptTicketAsync(cancellationToken).ConfigureAwait(false);
             _logger.LogInformation("Game Ticket: {ticket}", ticket);
 
-            IGame game = await _clientHandler.PatchClientAsync(HPlatform.Flash).ConfigureAwait(false);
+            IGame game = await _clientHandler.PatchClientAsync(HPlatform.Shockwave).ConfigureAwait(false);
             _logger.LogInformation("Client Patched : {game.path}", game.Path);
 
             var context = new HConnectionContext(game);

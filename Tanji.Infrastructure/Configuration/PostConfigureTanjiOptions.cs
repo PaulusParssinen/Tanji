@@ -23,7 +23,7 @@ internal sealed class PostConfigureTanjiOptions : IPostConfigureOptions<TanjiOpt
         options.Versions = JsonSerializer.Deserialize<LauncherVersions>(versionsFileStream,
             new JsonSerializerOptions()
             {
-                PropertyNameCaseInsensitive = true
+                PropertyNameCaseInsensitive = true,
             });
         if (options.Versions == default) return;
 

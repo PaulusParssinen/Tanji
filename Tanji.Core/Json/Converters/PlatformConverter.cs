@@ -13,6 +13,7 @@ public sealed class PlatformConverter : JsonConverter<HPlatform>
         {
             case HPlatform.Flash: writer.WriteStringValue("Flash"); break;
             case HPlatform.Unity: writer.WriteStringValue("Unity"); break;
+            case HPlatform.Shockwave: writer.WriteStringValue("Shockwave"); break;
         }
     }
     public override HPlatform Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => ToPlatform(reader.GetString());
@@ -20,6 +21,7 @@ public sealed class PlatformConverter : JsonConverter<HPlatform>
     public static string ToClientName(HPlatform platform) => platform switch
     {
         HPlatform.Flash => "HabboAir.swf",
+        HPlatform.Shockwave => "fuse_client.cct",
         _ => string.Empty
     };
     public static string ToExecutableName(HPlatform platform) => platform switch
@@ -33,6 +35,7 @@ public sealed class PlatformConverter : JsonConverter<HPlatform>
     {
         "flash" or "air" => HPlatform.Flash,
         "unity" => HPlatform.Unity,
+        "shockwave" => HPlatform.Shockwave,
         _ => HPlatform.Unknown
     };
 }

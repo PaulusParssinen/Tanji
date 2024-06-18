@@ -45,5 +45,10 @@ public enum HHotel
     /// <summary>
     /// Represents Habbo.com.tr (Turkey).
     /// </summary>
-    TR
+    TR,
+
+    /// <summary>
+    /// Represents origin.habbo.com (hhous)
+    /// </summary>
+    OUS
 }

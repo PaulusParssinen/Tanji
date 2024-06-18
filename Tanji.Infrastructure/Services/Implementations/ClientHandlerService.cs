@@ -18,6 +18,7 @@ using Flazzy.Tools;
 
 using CommunityToolkit.HighPerformance;
 using CommunityToolkit.HighPerformance.Buffers;
+using Tanji.Core.Canvas.Shockwave;
 
 namespace Tanji.Infrastructure.Services.Implementations;
 
@@ -207,6 +208,7 @@ public sealed class ClientHandlerService : IClientHandlerService
     private static IGame AcquireGame(HPlatform platform, Stream clientFileStream) => platform switch
     {
         HPlatform.Flash => new FlashGame(clientFileStream),
+        HPlatform.Shockwave => new ShockwaveGame(clientFileStream),
         //HPlatform.Unity => new UnityGame(gameStream),
         _ => throw new ArgumentException("Failed to initialize a game instance for the provided platform.", nameof(platform))
     };

@@ -6,6 +6,7 @@ public enum HPatches
     None = 0,
 
     FlashDefaults = DisableHostChecks | DisableEncryption | InjectKeyShouter | InjectAddressShouter | InjectAddress,
+    ShockwaveDefaults = InjectAddress,
 
     InjectAddress = 1,
     InjectRSAKeys = 2,

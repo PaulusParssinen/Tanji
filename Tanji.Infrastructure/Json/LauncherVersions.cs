@@ -7,8 +7,8 @@ namespace Tanji.Infrastructure.Json;
 
 public readonly record struct PlatformCheck
 {
-    public required string Version { get; init; }
-    public required string Path { get; init; }
+    public string? Version { get; init; }
+    public string? Path { get; init; }
 }
 public readonly record struct Installation
 {
@@ -24,8 +24,9 @@ public readonly record struct Installation
 }
 public readonly record struct UpdateCheck
 {
-    public required PlatformCheck Unity { get; init; }
-    public required PlatformCheck Air { get; init; }
+    public PlatformCheck Unity { get; init; }
+    public PlatformCheck Air { get; init; }
+    public PlatformCheck Shockwave { get; init; }
 
     [JsonConverter(typeof(EpochDateTimeConverter))]
     public required DateTime Time { get; init; }
