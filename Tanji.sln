@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tanji.Core.Generators", "Tanji.Core.Generators\Tanji.Core.Generators.csproj", "{CAC9A749-6C57-4504-A5C9-CF42BC92EE05}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tanji.CLI", "Tanji.CLI\Tanji.CLI.csproj", "{30006EB4-B64C-43F2-ACC0-C6EDAB1A412E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tanji.Infrastructure", "Tanji.Infrastructure\Tanji.Infrastructure.csproj", "{867F292C-906D-4F47-A341-CA8940FA210E}"
@@ -34,10 +32,6 @@ Global
 		{34F44445-23A0-49B5-92C1-DD77C0B6F20B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34F44445-23A0-49B5-92C1-DD77C0B6F20B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34F44445-23A0-49B5-92C1-DD77C0B6F20B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CAC9A749-6C57-4504-A5C9-CF42BC92EE05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CAC9A749-6C57-4504-A5C9-CF42BC92EE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CAC9A749-6C57-4504-A5C9-CF42BC92EE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CAC9A749-6C57-4504-A5C9-CF42BC92EE05}.Release|Any CPU.Build.0 = Release|Any CPU
 		{30006EB4-B64C-43F2-ACC0-C6EDAB1A412E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{30006EB4-B64C-43F2-ACC0-C6EDAB1A412E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30006EB4-B64C-43F2-ACC0-C6EDAB1A412E}.Release|Any CPU.ActiveCfg = Release|Any CPU

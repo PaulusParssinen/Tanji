@@ -9,6 +9,8 @@
 		<LangVersion>latest</LangVersion>
 		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 		<NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+        
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -39,7 +41,7 @@
 		<PackageReference Include="Hypo.Flazzy" Version="0.4.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-		<PackageReference Include="OswaldTechnologies.Extensions.Hosting.WindowsFormsLifetime" Version="1.0.2" />
+		<PackageReference Include="OswaldTechnologies.Extensions.Hosting.WindowsFormsLifetime" Version="1.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>

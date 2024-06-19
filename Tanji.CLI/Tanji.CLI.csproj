@@ -21,7 +21,6 @@
 			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</ProjectReference>
 		<ProjectReference Include="..\Tanji.Infrastructure\Tanji.Infrastructure.csproj" />
-		<ProjectReference Include="..\Tanji.Core.Generators\Tanji.Core.Generators.csproj" />
 	</ItemGroup>
 
 </Project>
