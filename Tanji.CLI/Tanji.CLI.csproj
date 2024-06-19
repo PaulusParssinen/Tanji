@@ -12,7 +12,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Eavesdrop" Version="1.3.0" />
+		<!--<PackageReference Include="Eavesdrop" Version="1.3.0" />-->
 		<PackageReference Include="Hypo.Flazzy" Version="0.4.0" />
 	</ItemGroup>
 

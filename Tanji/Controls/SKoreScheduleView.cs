@@ -7,8 +7,6 @@ using System.Collections.Generic;
 
 using Sulakore.Protocol;
 
-using Tangine;
-
 namespace Tanji.Controls;
 
 [DesignerCategory("Code")]
@@ -226,7 +224,13 @@ public class SKoreScheduleView : TanjiListView
                 IsRunning = false;
                 _ticker.Dispose();
 
-                SKore.Unsubscribe(ref ScheduleTick);
+                // SKore.Unsubscribe(ref ScheduleTick);
+                
+                if (ScheduleTick == null) return;
+                Delegate[] subscriptions = ScheduleTick.GetInvocationList();
+
+                foreach (Delegate subscription in subscriptions)
+                    eventHandler -= (EventHandler<ScheduleTickEventArgs>)subscription;
             }
             IsDisposed = true;
         }

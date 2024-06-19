@@ -19,8 +19,6 @@ using Tanji.Pages.Toolbox;
 using Tanji.Pages.Injection;
 using Tanji.Pages.Connection;
 
-using Tangine;
-
 using Sulakore.Habbo;
 using Sulakore.Protocol;
 using Sulakore.Habbo.Web;
@@ -142,7 +140,7 @@ public partial class MainFrm : ObservableForm
         }
         if (!_userCache[hotel].ContainsKey(name))
         {
-            HUser profile = await SKore.GetUserAsync(name, hotel).ConfigureAwait(false);
+            //HUser profile = await SKore.GetUserAsync(name, hotel).ConfigureAwait(false);
             _userCache[hotel][name] = profile;
         }
         return _userCache[hotel][name];
@@ -154,10 +152,10 @@ public partial class MainFrm : ObservableForm
 
         if (!_avatarCache.ContainsKey(user.FigureId))
         {
-            using (Bitmap avatar = await SKore.GetAvatarAsync(user.FigureId, HSize.Medium).ConfigureAwait(false))
-            {
-                _avatarCache[user.FigureId] = TrimAvatar(avatar);
-            }
+            //using (Bitmap avatar = await SKore.GetAvatarAsync(user.FigureId, HSize.Medium).ConfigureAwait(false))
+            //{
+            //    _avatarCache[user.FigureId] = TrimAvatar(avatar);
+            //}
         }
         return _avatarCache[user.FigureId];
     }
