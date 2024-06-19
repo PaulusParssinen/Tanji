@@ -15,6 +15,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\Shockky\Shockky\Shockky.csproj" />
 		<ProjectReference Include="..\Tanji.Core.Generators\Tanji.Core.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
 
