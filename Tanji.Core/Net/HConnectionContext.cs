@@ -1,7 +1,8 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 
+using Sulakore.Network.Formats;
+
 using Tanji.Core.Canvas;
-using Tanji.Core.Net.Formats;
 
 namespace Tanji.Core.Net;
 

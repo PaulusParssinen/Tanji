@@ -1,8 +1,10 @@
 ﻿using System.Reflection;
 
+using Sulakore.Habbo;
+
 using Tanji.Core.Net;
-using Tanji.Core.Canvas;
-using Tanji.Core.Net.Buffers;
+
+using Sulakore.Network.Buffers;
 
 namespace Tanji.Core.API;
 

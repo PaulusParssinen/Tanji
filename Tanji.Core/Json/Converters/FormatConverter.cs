@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-using Tanji.Core.Net.Formats;
+using Sulakore.Network.Formats;
 
 namespace Tanji.Core.Json;
 

@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection;
 
-using Tanji.Core.Net;
+using Sulakore.Network;
+
 using Tanji.Infrastructure.Factories;
 using Tanji.Infrastructure.ViewModels;
 using Tanji.Infrastructure.Configuration;

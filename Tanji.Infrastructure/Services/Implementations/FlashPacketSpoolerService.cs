@@ -2,9 +2,9 @@
 
 using Microsoft.Extensions.Logging;
 
-using Tanji.Core.Net;
-using Tanji.Core.Net.Buffers;
-using Tanji.Core.Cryptography.Ciphers;
+using Sulakore.Cryptography.Ciphers;
+using Sulakore.Network;
+using Sulakore.Network.Buffers;
 
 namespace Tanji.Infrastructure.Services.Implementations;
 

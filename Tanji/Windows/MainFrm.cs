@@ -8,22 +8,12 @@ using System.Drawing.Imaging;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-using Tanji.Network;
 using Tanji.Controls;
-using Tanji.Utilities;
 using Tanji.Properties;
-using Tanji.Pages.About;
 using Tanji.Manipulators;
-using Tanji.Pages.Modules;
-using Tanji.Pages.Toolbox;
-using Tanji.Pages.Injection;
-using Tanji.Pages.Connection;
 
 using Sulakore.Habbo;
-using Sulakore.Protocol;
 using Sulakore.Habbo.Web;
-using Sulakore.Communication;
-using Sulakore.Habbo.Messages;
 
 using Eavesdrop;
 

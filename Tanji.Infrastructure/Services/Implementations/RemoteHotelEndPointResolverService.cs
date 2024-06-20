@@ -1,14 +1,16 @@
 ﻿using System.Net;
 
-using Tanji.Core;
 using Tanji.Core.Net;
-using Tanji.Core.Canvas;
-using Tanji.Core.Net.Buffers;
-using Tanji.Core.Net.Formats;
+
+using Sulakore.Network.Buffers;
+using Sulakore.Network.Formats;
 
 using CommunityToolkit.HighPerformance.Buffers;
 
 using Microsoft.Extensions.Logging;
+
+using Sulakore.Habbo;
+using Sulakore.Network;
 
 namespace Tanji.Infrastructure.Services.Implementations;
 

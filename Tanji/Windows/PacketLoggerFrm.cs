@@ -8,9 +8,7 @@ using Tanji.Manipulators;
 using Tanji.Windows.Dialogs;
 
 using Sulakore.Habbo;
-using Sulakore.Protocol;
-using Sulakore.Communication;
-using Sulakore.Habbo.Messages;
+
 using Tanji.Controls;
 
 namespace Tanji.Windows;

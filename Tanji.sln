@@ -10,13 +10,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{77E3B32C-2631-4A8A-97F5-057F2B3C2F4A}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tanji.CLI", "Tanji.CLI\Tanji.CLI.csproj", "{30006EB4-B64C-43F2-ACC0-C6EDAB1A412E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tanji.Infrastructure", "Tanji.Infrastructure\Tanji.Infrastructure.csproj", "{867F292C-906D-4F47-A341-CA8940FA210E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shockky", "..\Shockky\Shockky\Shockky.csproj", "{6224BB8A-5B71-4CC9-A0A2-73F09D29F663}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tanji.Core.Generators", "Tanji.Core.Generators\Tanji.Core.Generators.csproj", "{B82E673E-1E1D-453A-BDB1-4685522273D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,10 +41,10 @@ Global
 		{867F292C-906D-4F47-A341-CA8940FA210E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{867F292C-906D-4F47-A341-CA8940FA210E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{867F292C-906D-4F47-A341-CA8940FA210E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6224BB8A-5B71-4CC9-A0A2-73F09D29F663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6224BB8A-5B71-4CC9-A0A2-73F09D29F663}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6224BB8A-5B71-4CC9-A0A2-73F09D29F663}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6224BB8A-5B71-4CC9-A0A2-73F09D29F663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B82E673E-1E1D-453A-BDB1-4685522273D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B82E673E-1E1D-453A-BDB1-4685522273D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B82E673E-1E1D-453A-BDB1-4685522273D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B82E673E-1E1D-453A-BDB1-4685522273D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

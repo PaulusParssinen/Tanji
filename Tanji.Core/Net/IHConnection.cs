@@ -1,5 +1,7 @@
 ﻿using System.Net;
 
+using Sulakore.Network;
+
 namespace Tanji.Core.Net;
 
 public interface IHConnection

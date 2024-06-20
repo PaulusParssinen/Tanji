@@ -1,6 +1,6 @@
 ﻿using Shockky;
 
-using Tanji.Core.Net.Formats;
+using Sulakore.Network.Formats;
 using Tanji.Core.Net.Messages;
 
 namespace Tanji.Core.Canvas.Shockwave;

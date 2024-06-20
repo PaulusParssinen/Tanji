@@ -4,6 +4,8 @@ using System.Net.Sockets;
 
 using CommunityToolkit.HighPerformance.Buffers;
 
+using Sulakore.Network;
+
 namespace Tanji.Core.Net;
 
 /// <summary>

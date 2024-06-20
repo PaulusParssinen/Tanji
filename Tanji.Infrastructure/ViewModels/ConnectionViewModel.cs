@@ -1,7 +1,8 @@
-﻿using Tanji.Core.Net;
-using Tanji.Infrastructure.Services;
+﻿using Tanji.Infrastructure.Services;
 
 using CommunityToolkit.Mvvm.ComponentModel;
+
+using Sulakore.Network;
 
 namespace Tanji.Infrastructure.ViewModels;
 

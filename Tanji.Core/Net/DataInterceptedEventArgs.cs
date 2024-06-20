@@ -1,5 +1,5 @@
-﻿using Tanji.Core.Net.Buffers;
-using Tanji.Core.Net.Formats;
+﻿using Sulakore.Network.Buffers;
+using Sulakore.Network.Formats;
 using Tanji.Core.Net.Messages;
 
 namespace Tanji.Core.Net;

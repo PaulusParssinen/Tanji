@@ -2,7 +2,7 @@
 using System.Text;
 using System.Buffers;
 
-using Tanji.Core.Net.Formats;
+using Sulakore.Network.Formats;
 using Tanji.Core.Net.Messages;
 
 using Flazzy;

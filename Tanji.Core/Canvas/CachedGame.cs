@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 
 using Tanji.Core.Json;
-using Tanji.Core.Net.Formats;
+using Sulakore.Network.Formats;
 using Tanji.Core.Net.Messages;
 
 namespace Tanji.Core.Canvas;

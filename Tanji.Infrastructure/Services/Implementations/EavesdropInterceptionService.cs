@@ -1,7 +1,5 @@
 ﻿using System.Threading.Channels;
 
-using Tanji.Core;
-using Tanji.Core.Canvas;
 using Tanji.Infrastructure.Configuration;
 
 using Eavesdrop;
@@ -9,7 +7,7 @@ using Eavesdrop;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-using CommunityToolkit.HighPerformance;
+using Sulakore.Habbo;
 
 namespace Tanji.Infrastructure.Services.Implementations;
 

@@ -1,4 +1,4 @@
-﻿using Tanji.Core.Net;
+﻿using Sulakore.Network;
 
 namespace Tanji.Infrastructure.Services;
 
