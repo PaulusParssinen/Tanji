@@ -29,9 +29,6 @@ internal static class ThrowHelper
     internal static void ThrowNotSupportedException(string? message = null) => throw new NotSupportedException(message);
 
     [DoesNotReturn]
-    internal static void ThrowArgumentNullException(string? paramName) => throw new ArgumentNullException(paramName);
-
-    [DoesNotReturn]
     internal static void ThrowObjectDisposedException(string? message) => throw new ObjectDisposedException(message);
 
     [DoesNotReturn]

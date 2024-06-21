@@ -10,6 +10,7 @@ using Eavesdrop;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace Tanji.CLI;
 
@@ -48,7 +49,9 @@ public class Program
     private readonly IClientHandlerService _clientHandler;
     private readonly IConnectionHandlerService _connectionHandler;
 
-    public Program(ILogger<Program> logger,
+    public Program(
+        ILogger<Program> logger,
+        IOptions<TanjiOptions> options,
         IWebInterceptionService webInterception,
         IClientHandlerService clientHandler,
         IConnectionHandlerService connectionHandler)
@@ -57,8 +60,6 @@ public class Program
         _clientHandler = clientHandler;
         _webInterception = webInterception;
         _connectionHandler = connectionHandler;
-
-        _logger.LogDebug($"{nameof(Program)} ctor");
     }
 
     public async Task RunAsync(CancellationToken cancellationToken = default)
@@ -66,14 +67,14 @@ public class Program
         _logger.LogInformation("Intercepting Game Token(s)...");
         do
         {
-            string ticket = true ? "hhus.ABC.v4" : await _webInterception.InterceptTicketAsync(cancellationToken).ConfigureAwait(false);
-            _logger.LogInformation("Game Ticket: {ticket}", ticket);
+            //string ticket = true ? "hhus.ABC.v4" : await _webInterception.InterceptTicketAsync(cancellationToken).ConfigureAwait(false);
+            //_logger.LogInformation("Game Ticket: {ticket}", ticket);
 
             IGame game = await _clientHandler.PatchClientAsync(HPlatform.Shockwave).ConfigureAwait(false);
             _logger.LogInformation("Client Patched : {game.path}", game.Path);
 
             var context = new HConnectionContext(game);
-            _ = await _connectionHandler.LaunchAndInterceptConnectionAsync(ticket, context, cancellationToken).ConfigureAwait(false);
+            _ = await _connectionHandler.InterceptConnectionAsync(context, cancellationToken).ConfigureAwait(false);
         }
         while (!cancellationToken.IsCancellationRequested);
     }

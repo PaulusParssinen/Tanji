@@ -8,24 +8,18 @@ namespace Tanji.Controls;
 [DesignerCategory("Code")]
 public class BindableToolStripMenuItem : ToolStripMenuItem, IBindableComponent
 {
-    private BindingContext _context;
+    private BindingContext? _context;
     [Browsable(false)]
     public BindingContext BindingContext
     {
-        get => (_context ?? (_context = new BindingContext()));
+        get => _context ??= new BindingContext();
+        
         set => _context = value;
     }
 
-    private ControlBindingsCollection _bindings;
+    private ControlBindingsCollection? _bindings;
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-    public ControlBindingsCollection DataBindings
-    {
-        get
-        {
-            return (_bindings ??
-                (_bindings = new ControlBindingsCollection(this)));
-        }
-    }
+    public ControlBindingsCollection DataBindings => _bindings ??= new ControlBindingsCollection(this);
 
     public BindableToolStripMenuItem()
     { }

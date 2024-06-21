@@ -11,7 +11,7 @@ public interface IClientHandlerService
     DirectoryInfo PatchedClientsDirectory { get; }
 
     Task<IGame> PatchClientAsync(HPlatform platform, string? clientPath = null);
-    Task<Process> LaunchClientAsync(HPlatform platform, string ticket, string? clientPath = null);
+    Task<Process> LaunchClientAsync(HPlatform platform, string? ticket, string? clientPath = null);
 
     bool TryGetIdentifiers(string? revision, out Outgoing? outgoing, out Incoming? incoming);
 }
