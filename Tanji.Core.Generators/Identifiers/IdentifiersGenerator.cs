@@ -74,7 +74,7 @@ public sealed class IdentifiersGenerator : IIncrementalGenerator
                     }
                 """);
 
-            if (message.Name.StartsWith("_-"))
+            if (message.Name.StartsWith("_-", StringComparison.Ordinal))
             {
                 indentedText.WriteLine("*/");
             }
@@ -94,7 +94,7 @@ public sealed class IdentifiersGenerator : IIncrementalGenerator
             if (IsMessageInvalid(message)) continue;
 
             indentedText.WriteLine();
-            if (message.Name.StartsWith("_-"))
+            if (message.Name.StartsWith("_-", StringComparison.Ordinal))
             {
                 indentedText.Write("""
                     /*
@@ -123,7 +123,7 @@ public sealed class IdentifiersGenerator : IIncrementalGenerator
             }
             indentedText.WriteLine(");");
 
-            if (message.Name.StartsWith("_-"))
+            if (message.Name.StartsWith("_-", StringComparison.Ordinal))
             {
                 indentedText.WriteLine("*/");
             }
